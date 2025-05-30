@@ -22,6 +22,7 @@ export default function AdminSidebar() {
   return (
     <Sidebar className="hidden md:flex">
       <SidebarMenu>
+        {/* User Management Collapsible */}
         <Collapsible defaultOpen className="group/collapsible">
           <SidebarMenuItem>
             <CollapsibleTrigger asChild>
@@ -47,22 +48,23 @@ export default function AdminSidebar() {
                     All Users
                   </Link>
                 </SidebarMenuSubItem>
-                <SidebarMenuSubItem>
-                  <Link
-                    href="/dashboard/blocklist"
-                    className={
-                      pathname === '/dashboard/blocklist'
-                        ? 'font-semibold'
-                        : ''
-                    }
-                  >
-                    Blocked Users
-                  </Link>
-                </SidebarMenuSubItem>
               </SidebarMenuSub>
             </CollapsibleContent>
           </SidebarMenuItem>
         </Collapsible>
+
+        {/* 📊 Statistics Item */}
+        <SidebarMenuItem>
+          <Link href="/admin/statistics">
+  <SidebarMenuButton
+    className={
+      pathname === '/admin/statistics' ? 'bg-muted font-semibold' : ''
+    }
+  >
+    📊 Statistics
+  </SidebarMenuButton>
+</Link>
+        </SidebarMenuItem>
       </SidebarMenu>
     </Sidebar>
   );

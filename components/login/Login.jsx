@@ -4,9 +4,8 @@ import { useState } from 'react';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
-import axios from 'axios';
-import Cookies from 'js-cookie';
 import { useRouter } from 'next/navigation';
+import { loginAdmin } from '@/lib/api/admin';
 
 export default function LoginPage() {
   const router = useRouter();
@@ -17,11 +16,8 @@ export default function LoginPage() {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post('https://api.airlayer.space/admin/login', {
-        email,
-        password,
-      });
-      Cookies.set('admin_token', res.data.access_token);
+      await loginAdmin(email, password);
+      console.log('✅ Login successful, redirecting...');
       router.push('/dashboard');
     } catch (err) {
       setError('Invalid credentials');
@@ -48,7 +44,9 @@ export default function LoginPage() {
             <Button className="w-full" type="submit">
               Login
             </Button>
-            {error && <p className="text-red-500 text-sm text-center">{error}</p>}
+            {error && (
+              <p className="text-red-500 text-sm text-center">{error}</p>
+            )}
           </form>
         </CardContent>
       </Card>
