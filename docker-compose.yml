@@ -1,12 +1,13 @@
 version: '3'
 services:
-  admin-panel-prod:
+  admin-panel-dev:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: admin-panel-prod
+    container_name: admin-panel-dev
     ports:
       - "3200:3000"
-    restart: always
-    environment:
-      - NODE_ENV=production
+    volumes:
+      - .:/app
+      - /app/node_modules
+    command: npm run dev

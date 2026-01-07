@@ -65,6 +65,17 @@ export default function AdminSidebar() {
   </SidebarMenuButton>
 </Link>
         </SidebarMenuItem>
+        <SidebarMenuItem>
+          <Link href="/admin/product">
+  <SidebarMenuButton
+    className={
+      pathname === '/admin/product' ? 'bg-muted font-semibold' : ''
+    }
+  >
+    products
+  </SidebarMenuButton>
+</Link>
+        </SidebarMenuItem>
       </SidebarMenu>
     </Sidebar>
   );

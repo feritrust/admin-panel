@@ -55,7 +55,7 @@ export default function DashboardPage() {
       </Button>
 
       <div className="pt-6 space-y-3">
-        <h2 className="font-semibold">📢 Send Broadcast to All Users</h2>
+        <h2 className="font-semibold">📢 Send Broadcast to All Users </h2>
         <Input
           placeholder="Your message here..."
           value={message}
