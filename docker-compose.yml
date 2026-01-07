@@ -1,0 +1,12 @@
+version: '3'
+services:
+  admin-panel-prod:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: admin-panel-prod
+    ports:
+      - "3200:3000"
+    restart: always
+    environment:
+      - NODE_ENV=production
